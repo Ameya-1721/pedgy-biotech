@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Products.css";
 import ProductCard from "../components/ProductCard";
-import productsData from "../content/products.json";
+import productsData from "../content/Products.json";
 
 export default function Products() {
   const { products } = productsData;
