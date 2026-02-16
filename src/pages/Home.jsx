@@ -11,9 +11,8 @@ export default function Home() {
         <h1>Purely Built on Trust</h1>
         <p>
           <ReactMarkdown>
-
+            {hero.p}
           </ReactMarkdown>
-          {hero.p}
         </p>
       </section>
 

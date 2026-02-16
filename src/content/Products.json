@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "slug": "pb-plus",
+      "title": "PB Plus",
+      "packSize": "3 x 10 Capsules",
+      "image": "pb-plus.webp",
+      "description": [
+        "Reduces Systemic Inflamation by Producing (SCFA)",
+        "Spore Forming Nature withstands Acid, Bile and Heat",
+        "Improves Gut-Kidney Axis",
+        "No Cold Storage Required",
+        "Your Natural Detox Charger..!"
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "bph-plus",
+      "title": "BPH Plus",
+      "packSize": "3 x 10 Capsules",
+      "image": "bph-plus.webp",
+      "description": [
+        "Inhibits 5-reductace by 50%, reduces DHT",
+        "Enhances urinary comfort and flow",
+        "Inhibits SHBG binding, anti-androgenic, anti-inflammatory",
+        "Reduces growth factors in prostate tissue",
+        "A Natural formula to restore confidence and flow"
+      ]
+    }
+  ]
+}

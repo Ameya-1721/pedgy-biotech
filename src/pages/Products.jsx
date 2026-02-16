@@ -1,25 +1,12 @@
+import { useState } from "react";
 import "./Products.css";
 import ProductCard from "../components/ProductCard";
-
-import pbPlus from "../assets/products/pb-plus.jpg";
-import bphPlus from "../assets/products/bph-plus.jpg";
-
-const products = [
-  {
-    id: 1,
-    title: "PB Plus",
-    price: "3 x 10 Capsules",
-    image: pbPlus
-  },
-  {
-    id: 2,
-    title: "BPH Plus",
-    price: "3 x 10 Capsules",
-    image: bphPlus
-  }
-];
+import productsData from "../content/products.json";
 
 export default function Products() {
+  const { products } = productsData;
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
   return (
     <div className="products">
       <h1>Our Products</h1>
@@ -29,9 +16,49 @@ export default function Products() {
 
       <div className="product-grid">
         {products.map(product => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard
+            key={product.id}
+            product={product}
+            onClick={() => setSelectedProduct(product)}
+          />
         ))}
       </div>
+
+      {selectedProduct && (
+        <div className="modal-overlay" onClick={() => setSelectedProduct(null)}>
+          <div
+            className="modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="modal-content">
+              <div className="modal-image">
+                <img
+                  src={`/products/${selectedProduct.image}`}
+                  alt={selectedProduct.title}
+                />
+              </div>
+
+              <div className="modal-details">
+                <h2>{selectedProduct.title}</h2>
+                <p className="pack">{selectedProduct.packSize}</p>
+
+                <ul>
+                  {selectedProduct.description.map((point, index) => (
+                    <li key={index}>{point}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <button
+              className="close-btn"
+              onClick={() => setSelectedProduct(null)}
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
