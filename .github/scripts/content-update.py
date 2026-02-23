@@ -82,7 +82,7 @@ product_image = extract_image_url(raw_image_field) if raw_image_field else None
 # -------------------------
 
 if hero or home_content:
-    home_path = Path("content/Home.json")
+    home_path = Path("src/content/Home.json")
 
     with open(home_path, "r", encoding="utf-8") as f:
         home_data = json.load(f)
@@ -106,7 +106,7 @@ if hero or home_content:
 # -------------------------
 
 if about_content:
-    about_path = Path("content/About.json")
+    about_path = Path("src/content/About.json")
 
     with open(about_path, "r", encoding="utf-8") as f:
         about_data = json.load(f)
@@ -122,28 +122,28 @@ if about_content:
 
 
 # -------------------------
-# PRODUCT ADD
+# PRODUCT UPSERT (Update or Create)
 # -------------------------
 
 if product_title and product_pack and product_desc and product_image:
 
-    products_path = Path("content/products.json")
+    products_path = Path("src/content/Products.json")
 
     with open(products_path, "r", encoding="utf-8") as f:
         products_data = json.load(f)
 
     existing_products = products_data.get("products", [])
 
-    if existing_products:
-        new_id = max(p["id"] for p in existing_products) + 1
-    else:
-        new_id = 1
-
     slug = slugify(product_title)
+
+    # Try to find existing product
+    existing_product = next(
+        (p for p in existing_products if p["slug"] == slug),
+        None
+    )
+
     image_name = f"{slug}.webp"
     image_path = Path("public/products") / image_name
-
-    # Ensure directory exists
     image_path.parent.mkdir(parents=True, exist_ok=True)
 
     download_image(product_image, image_path)
@@ -154,21 +154,37 @@ if product_title and product_pack and product_desc and product_image:
         if line.strip()
     ]
 
-    new_product = {
-        "id": new_id,
-        "slug": slug,
-        "title": product_title,
-        "packSize": product_pack,
-        "image": image_name,
-        "description": description_array
-    }
+    if existing_product:
+        print("Product exists. Updating...")
 
-    products_data["products"].append(new_product)
+        existing_product["title"] = product_title
+        existing_product["packSize"] = product_pack
+        existing_product["image"] = image_name
+        existing_product["description"] = description_array
+
+    else:
+        print("Product not found. Creating new...")
+
+        if existing_products:
+            new_id = max(p["id"] for p in existing_products) + 1
+        else:
+            new_id = 1
+
+        new_product = {
+            "id": new_id,
+            "slug": slug,
+            "title": product_title,
+            "packSize": product_pack,
+            "image": image_name,
+            "description": description_array
+        }
+
+        products_data["products"].append(new_product)
 
     with open(products_path, "w", encoding="utf-8") as f:
         json.dump(products_data, f, indent=2)
 
-    print("Product added.")
+    print("Product upsert complete.")
 
 
 print("Content update complete.")
