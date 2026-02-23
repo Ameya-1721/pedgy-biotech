@@ -30,6 +30,18 @@ def slugify(text):
     slug = re.sub(r'^-|-$', '', slug)
     return slug
 
+def extract_image_url(text):
+    # Try extracting src from <img> tag
+    img_match = re.search(r'src="(https://[^"]+)"', text)
+    if img_match:
+        return img_match.group(1)
+
+    # Fallback: extract plain URL if pasted
+    url_match = re.search(r'(https://\S+)', text)
+    if url_match:
+        return url_match.group(1)
+
+    return None
 
 def download_image(url, filepath):
     try:
@@ -61,7 +73,8 @@ about_content = extract_field("About Content (Separate paragraphs with blank lin
 product_title = extract_field("Product Title")
 product_pack = extract_field("Pack Size")
 product_desc = extract_field("Product Description (One point per line)")
-product_image = extract_field("Product Image URL")
+raw_image_field = extract_field("Product Image")
+product_image = extract_image_url(raw_image_field) if raw_image_field else None
 
 
 # -------------------------
