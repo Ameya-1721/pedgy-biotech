@@ -27,6 +27,17 @@
         "Reduces growth factors in prostate tissue",
         "A Natural formula to restore confidence and flow"
       ]
+    },
+    {
+      "id": 3,
+      "slug": "pberry",
+      "title": "PBerry",
+      "packSize": "10 x 1 Sachet",
+      "image": "pberry.webp",
+      "description": [
+        "Good **Cranberry** taste",
+        "Complete defence restoration formula"
+      ]
     }
   ]
 }
