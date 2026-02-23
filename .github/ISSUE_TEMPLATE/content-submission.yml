@@ -1,0 +1,74 @@
+name: Content Changes
+description: Submit content updates for Pedgy Biotech website
+title: "[Content Update]: "
+labels: []
+body:
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Home Page Update
+
+  - type: textarea
+    id: home_hero
+    attributes:
+      label: Hero Paragraph
+      description: Update the hero paragraph (optional)
+    validations:
+      required: false
+
+  - type: textarea
+    id: home_content
+    attributes:
+      label: Home Content (Separate paragraphs with blank line)
+      description: Enter multiple paragraphs separated by blank line
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## About Page Update
+
+  - type: textarea
+    id: about_content
+    attributes:
+      label: About Content (Separate paragraphs with blank line)
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Add New Product (Optional)
+
+  - type: input
+    id: product_title
+    attributes:
+      label: Product Title
+    validations:
+      required: false
+
+  - type: input
+    id: product_packsize
+    attributes:
+      label: Pack Size
+    validations:
+      required: false
+
+  - type: textarea
+    id: product_description
+    attributes:
+      label: Product Description (One point per line)
+    validations:
+      required: false
+
+  - type: textarea
+    id: product_image
+    attributes:
+      label: Product Image
+      description: |
+        Drag & drop the image below after creating the issue.
+        Paste the GitHub generated image URL here.
+    validations:
+      required: false
