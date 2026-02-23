@@ -24,27 +24,13 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Create Feature Branch
-        run: |
-          BRANCH_NAME="pb-feature-issue-${{ github.event.issue.number }}"
-          git checkout -b $BRANCH_NAME
-          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
-
       - name: Run Script
         run: python .github/scripts/content-update.py
-
-      - name: Commit Changes
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add .
-          git commit -m "Content update from Issue #${{ github.event.issue.number }}"
-          git push origin $BRANCH_NAME
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          branch: ${{ env.BRANCH_NAME }}
+          branch: pb-feature-issue-${{ github.event.issue.number }}
           base: dev-ameya
           title: "Content Update (Issue #${{ github.event.issue.number }})"
           body: "Automated content update from Issue #${{ github.event.issue.number }}"
