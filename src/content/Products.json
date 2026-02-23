@@ -27,6 +27,19 @@
         "Reduces growth factors in prostate tissue",
         "A Natural formula to restore confidence and flow"
       ]
+    },
+    {
+      "id": 3,
+      "slug": "p-berry",
+      "title": "P Berry",
+      "packSize": "10 x 2",
+      "image": "p-berry.webp",
+      "description": [
+        "Good Probiotic",
+        "Nice taste of Cranberry",
+        "Ensures Gut Metabolism",
+        "User friendly packaging"
+      ]
     }
   ]
 }
