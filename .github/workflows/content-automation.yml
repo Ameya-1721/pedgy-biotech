@@ -17,7 +17,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          ref: dev-ameya
+          ref: dev-ameya-1
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -31,6 +31,6 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           branch: pb-feature-issue-${{ github.event.issue.number }}
-          base: dev-ameya
+          base: dev-ameya-1
           title: "Content Update (Issue #${{ github.event.issue.number }})"
           body: "Automated content update from Issue #${{ github.event.issue.number }}"
