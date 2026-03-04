@@ -8,7 +8,7 @@ export default function Footer() {
 
         {/* Brand */}
         <div className="footer-col">
-          <h3 className="footer-title">Pedgy Biotech</h3>
+          <h3 className="footer-title">Pedgy Biotech Private Limited</h3>
           <p className="footer-desc">
             Purely Built on Trust. Delivering innovative, reliable, and
             high-quality probiotic solutions in nephrology with an unwavering
