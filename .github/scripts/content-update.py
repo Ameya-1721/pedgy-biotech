@@ -28,8 +28,9 @@ def extract_field(label):
 
     value = match.group(1).strip()
 
-    # GitHub forms can sometimes contain placeholder text
-    if not value:
+    # GitHub Issue Forms use "No response"
+    # for fields that were left untouched.
+    if not value or value.lower() == "no response":
         return None
 
     return value
