@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run Script
+      - name: Run Content Update
         run: python .github/scripts/content-update.py
 
       - name: Create Pull Request
@@ -33,4 +33,7 @@ jobs:
           branch: pb-feature-issue-${{ github.event.issue.number }}
           base: dev-ameya
           title: "Content Update (Issue #${{ github.event.issue.number }})"
-          body: "Automated content update from Issue #${{ github.event.issue.number }}"
+          body: |
+            Automated content update from Issue #${{ github.event.issue.number }}.
+
+            This PR contains only the sections supplied in the approved content update issue.
