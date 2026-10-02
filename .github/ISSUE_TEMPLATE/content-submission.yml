@@ -13,7 +13,7 @@ body:
     id: home_hero
     attributes:
       label: Hero Paragraph
-      description: Update the hero paragraph (optional)
+      description: Update only the hero paragraph if required. Leave blank to keep unchanged.
     validations:
       required: false
 
@@ -21,7 +21,7 @@ body:
     id: home_content
     attributes:
       label: Home Content (Separate paragraphs with blank line)
-      description: Enter multiple paragraphs separated by blank line
+      description: Update home page content. Leave blank to keep unchanged.
     validations:
       required: false
 
@@ -34,18 +34,24 @@ body:
     id: about_content
     attributes:
       label: About Content (Separate paragraphs with blank line)
+      description: Update about page content. Leave blank to keep unchanged.
     validations:
       required: false
 
   - type: markdown
     attributes:
       value: |
-        ## Add New Product (Optional)
+        ## Product Update / Add Product
+
+        For any product update, **Product Description and Product Image are required**.
+        If updating an existing product, enter its existing Product Title.
+        For a new product, Product Title and Pack Size are also required.
 
   - type: input
     id: product_title
     attributes:
       label: Product Title
+      description: Required when adding a new product or identifying an existing product to update.
     validations:
       required: false
 
@@ -53,6 +59,7 @@ body:
     id: product_packsize
     attributes:
       label: Pack Size
+      description: Required only when adding a new product. Leave blank when keeping the existing pack size unchanged.
     validations:
       required: false
 
@@ -60,6 +67,7 @@ body:
     id: product_description
     attributes:
       label: Product Description (One point per line)
+      description: Required for every product update/addition. One point per line.
     validations:
       required: false
 
@@ -68,7 +76,8 @@ body:
     attributes:
       label: Product Image
       description: |
+        Required for every product update/addition.
         Drag & drop the image below after creating the issue.
-        Paste the GitHub generated image URL here.
+        Then paste the GitHub-generated image URL here.
     validations:
       required: false
