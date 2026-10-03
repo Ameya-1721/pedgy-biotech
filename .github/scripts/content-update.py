@@ -28,9 +28,13 @@ def extract_field(label):
 
     value = match.group(1).strip()
 
-    # GitHub Issue Forms use "No response"
-    # for fields that were left untouched.
-    if not value or value.lower() == "no response":
+    # Normalize Markdown formatting used by GitHub Issue Forms.
+    normalized = re.sub(r"[*_`]", "", value)
+    normalized = re.sub(r"\s+", " ", normalized).strip().lower()
+
+    # GitHub Issue Forms use "_No response_" for
+    # untouched optional fields.
+    if normalized == "no response":
         return None
 
     return value
