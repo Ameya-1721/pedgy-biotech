@@ -41,6 +41,20 @@
         "Supports Healthy Urinary Flora – Probiotics help maintain a healthy balance of beneficial bacteria",
         "Helps Reduce UTI Recurrence – Supports long-term urinary tract health and natural defence"
       ]
+    },
+    {
+      "id": 4,
+      "slug": "reno-day",
+      "title": "Reno Day",
+      "packSize": "3 x 10 Tablets",
+      "image": "reno-day.webp",
+      "description": [
+        "Supports Healthy Nerve Function – Helps maintain normal nerve health and function",
+        "Supports Nerve Repair & Protection – Methylcobalamin helps support healthy nerve covering and nerve function",
+        "Supports Daily Energy – Biotin and B-complex vitamins help the body produce energy",
+        "Helps Reduce Fatigue & Weakness – Supports energy levels and overall stamina",
+        "Supports Healthy Blood & Oxygen Supply – B-complex vitamins support healthy red blood cell formation and oxygen delivery"
+      ]
     }
   ]
 }
