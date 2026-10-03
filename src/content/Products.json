@@ -27,6 +27,20 @@
         "Reduces growth factors in prostate tissue",
         "A Natural formula to restore confidence and flow"
       ]
+    },
+    {
+      "id": 3,
+      "slug": "p-berry",
+      "title": "P Berry",
+      "packSize": "10 x 2 Sachets",
+      "image": "p-berry.webp",
+      "description": [
+        "Supports Natural UTI Defence – Helps maintain a healthy urinary tract",
+        "Supports Urinary Comfort – Helps maintain normal urinary health and comfort",
+        "Helps Prevent Bacterial Adhesion – Cranberry and D-mannose help reduce the ability of unwanted bacteria to stick to the urinary tract",
+        "Supports Healthy Urinary Flora – Probiotics help maintain a healthy balance of beneficial bacteria",
+        "Helps Reduce UTI Recurrence – Supports long-term urinary tract health and natural defence"
+      ]
     }
   ]
 }
